@@ -3,7 +3,7 @@ from ultralytics import YOLO
 import torch
 
 def main():
-    model = YOLO("yolov8s.pt")
+    model = YOLO("models/yolov8s.pt")
     if (is_cuda_available()):
         model.to("cuda")
         print("model is processing on cuda")
