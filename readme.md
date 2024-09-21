@@ -1,24 +1,63 @@
-# Ultralyitcs YOLO Setup and Installation
+# ** Before readme **
+Open VSCode -> Click Extension -> Search below -> Install
+```bash
+   Markdown Preview Enhanced
+```
+```bash
+   Material Icon Theme
+```
+```bash
+   Path Intellisense
+```
 
+# Ultralyitcs YOLO Setup and Installation
 This guide provides detailed steps to set up and install Ultralyitcs YOLO with CUDA Toolkit 11.7 and Anaconda for virtual environment management.
 
 ## Prerequisites
-
 Before you begin, ensure that you have:
-
+- **Python 3.9.9** for AI Development
 - **NVIDIA GPU** with support for CUDA.
 - **Anaconda** installed on your system (for virtual environment management).
 - **CUDA Toolkit 11.7** installed.
-  
-## Step 1: Install CUDA Toolkit 11.7
 
+
+## #Step 0: Install Python 3.12
+- Open Console
+- typing this in console
+   ```
+   python --version
+   ```
+   - If it found python version 3.12.x or any version 
+      ![found python version](./resource/docs/python_steup_console_2.png)
+      then Skip this **`#Step 0`** and go to **`#Step 1`**
+
+   - But if not found any version, Typing this in console
+      ```
+      python
+      ``` 
+      ![python console](./resource//docs/python_setup_console_1.png)
+      and it will show **Python 3.12** on **Microsoft Store**
+      ![microsoft store python 3.12](./resource/docs/python312.png)
+      - Click **Get** to download
+      - after that re-checking Python version
+      ![found python version](./resource/docs/python_steup_console_2.png)
+      - Complete this **`#Step 0`** and go to **`#Step 1`**
+
+
+
+## #Step 1: Install CUDA Toolkit 11.7
 To leverage GPU acceleration, you need to install the CUDA Toolkit 11.7. Follow these steps:
 
 1. Visit the [CUDA Toolkit 11.7 download page](https://developer.nvidia.com/cuda-11-7-0-download-archive) and select the version appropriate for your operating system.
+   - select according to your pc or laptop
+   ![alt text](./resource/docs/image.png)
+   - and 
+
+
 2. Follow the installation instructions on the page. After installation, verify it by running:
 
    ```bash
-   nvcc --version
+      nvcc --version
    ```
 
    This should return details of CUDA 11.7 if the installation was successful.
@@ -32,7 +71,7 @@ Anaconda will help manage your virtual environments. You can install Anaconda by
 3. Verify the installation by running:
 
    ```bash
-   conda --version
+      conda --version
    ```
 
 ## Step 3: Set Up the YOLOv8 Virtual Environment
