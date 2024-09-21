@@ -46,6 +46,12 @@ Before you begin, ensure that you have:
 
 
 
+## #Step 1: OBS
+- [Download OBS](https://obsproject.com/)
+
+
+
+
 ## #Step 1: Install CUDA Toolkit 11.7
 To leverage GPU acceleration, you need to install the CUDA Toolkit 11.7. Follow these steps:
 
