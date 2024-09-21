@@ -16,6 +16,7 @@ This guide provides detailed steps to set up and install Ultralyitcs YOLO with C
 ## Prerequisites
 Before you begin, ensure that you have:
 - **Python 3.9.9** for AI Development
+- **OBS** for Video Stream
 - **NVIDIA GPU** with support for CUDA.
 - **Anaconda** installed on your system (for virtual environment management).
 - **CUDA Toolkit 11.7** installed.
