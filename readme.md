@@ -174,14 +174,14 @@ For detailed instructions, refer to the official [CONDA Documentation](https://c
 
 
 4. (Optional, for NVIDIA GPU users) Install PyTorch with CUDA support by following the instructions from the [PyTorch website](https://pytorch.org/get-started/locally/). 
-For this workshop using PyTorc CUDA 11.7:
-   - pip install
+For this workshop using PyTorch CUDA 11.7:
+   - pip install `PyTorch` and it's dependencies using below:
       ```bash
       pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
       ```
       ![pip_install_pytorch_cuda](/resource/docs/pip_install_pytorch_cuda.png)
 
-   - After pip install `pytorch cuda 117`, Let's try to run `main.py` by following command:
+   - After pip installing `PyTorch with cu117 (CUDA 11.7)`, Let's try to run `main.py` by following command:
       ```bash
       python src\main.py
       ``` 
