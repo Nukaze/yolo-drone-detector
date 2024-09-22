@@ -188,10 +188,24 @@ For this workshop using PyTorch CUDA 11.7:
       ![run_on_cuda](./resource/docs/run_on_cuda.png)
       (The model will process using the NVIDIA GPU.)
 
+5. **(Optional) Export Conda Environment for Use on Another PC or Machine**
+   To export your Conda environment so it can be easily recreated on another system
+   - Export the environment
+      ```bash
+      conda env export > environment.yml
+      ```
 
+   - Recreating the environment
+   (On another machine, you can recreate the environment using):
+      ```bash
+      conda env create -f environment.yml
+      ```
 
+   - Result of `environment.yml`
+   ![environment_yml](./resource/docs/environment_yml.png)
+   This process allows you to set up the same environment, ensuring consistency and portability across different systems.
 
-## Step 5: Activate the Environment and Run YOLOv8
+## #Step 5: TODO
 
 Once the installation is complete, you can activate the environment using:
 
