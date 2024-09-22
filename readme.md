@@ -1,72 +1,80 @@
 # ** Before readme **
+
 Open VSCode -> Click Extension -> Search below -> Install
+
 ```bash
-   Markdown Preview Enhanced
+Markdown Preview Enhanced
 ```
+
 ```bash
-   Material Icon Theme
+Material Icon Theme
 ```
+
 ```bash
-   Path Intellisense
+Path Intellisense
 ```
 
 # Ultralyitcs YOLO Setup and Installation
+
 This guide provides detailed steps to set up and install Ultralyitcs YOLO with CUDA Toolkit 11.7 and Anaconda for virtual environment management.
 
 ## Prerequisites
+
 Before you begin, ensure that you have:
+
 - **Python 3.9.9** for AI Development
 - **OBS** for Video Stream
 - **NVIDIA GPU** with support for CUDA.
 - **Anaconda** installed on your system (for virtual environment management).
 - **CUDA Toolkit 11.7** installed.
 
-
 ## #Step 0: Install Python 3.12
-- Open Console
+
+- Open Command Console
 - typing this in console
-   ```
-   python --version
-   ```
-   - If it found python version 3.12.x or any version 
+  ```
+  python --version
+  ```
+
+  - If it found python version 3.12.x or any version
+    ![found python version](./resource/docs/python_steup_console_2.png)
+    then Skip this **`#Step 0`** and go to **`#Step 1`**
+  - But if not found any version, Typing this in console
+
+    ```
+    python
+    ```
+
+    ![python console](./resource//docs/python_setup_console_1.png)
+    and it will show **Python 3.12** on **Microsoft Store**
+    ![microsoft store python 3.12](./resource/docs/python312.png)
+
+    - Click **Get** to download
+    - after downloaded, re-checking Python version
       ![found python version](./resource/docs/python_steup_console_2.png)
-      then Skip this **`#Step 0`** and go to **`#Step 1`**
-
-   - But if not found any version, Typing this in console
-      ```
-      python
-      ``` 
-      ![python console](./resource//docs/python_setup_console_1.png)
-      and it will show **Python 3.12** on **Microsoft Store**
-      ![microsoft store python 3.12](./resource/docs/python312.png)
-      - Click **Get** to download
-      - after that re-checking Python version
-      ![found python version](./resource/docs/python_steup_console_2.png)
-      - Complete this **`#Step 0`** and go to **`#Step 1`**
-
-
+    - Complete this **`#Step 0`** and go to **`#Step 1`**
 
 ## #Step 1: OBS
-- [Download OBS](https://obsproject.com/)
 
-
-
+- Go to [Download OBS](https://obsproject.com/)
+   ![obs page](./resource/docs/obs_page.png)
+- And follow on-screen prompts
 
 ## #Step 1: Install CUDA Toolkit 11.7
+
 To leverage GPU acceleration, you need to install the CUDA Toolkit 11.7. Follow these steps:
 
 1. Visit the [CUDA Toolkit 11.7 download page](https://developer.nvidia.com/cuda-11-7-0-download-archive) and select the version appropriate for your operating system.
-   - select according to your pc or laptop
-   ![alt text](./resource/docs/image.png)
-   - and 
 
-
+   - select according to your pc or laptop 
+      Windows --> x86_64 --> 10 --> exe (network)
+     ![cuda_select_installer](./resource/docs/cuda_select_installer.png)
+   - And follow on-screen prompts
 2. Follow the installation instructions on the page. After installation, verify it by running:
-
    ```bash
-      nvcc --version
+   nvcc --version
    ```
-
+   ![nvcc show version](./resource/docs/nvcc_version.png)
    This should return details of CUDA 11.7 if the installation was successful.
 
 ## Step 2: Install Anaconda
@@ -75,34 +83,29 @@ Anaconda will help manage your virtual environments. You can install Anaconda by
 
 1. Download the installer from the [official Anaconda website](https://www.anaconda.com/download/success).
 2. Run the installer and follow the on-screen instructions.
+![Anaconda_install_options](./resource/docs/conda_install_options.png)
 3. Verify the installation by running:
 
    ```bash
-      conda --version
+   conda --version
    ```
+   ![conda_version](./resource/docs/conda_version.png)
 
 ## Step 3: Set Up the YOLOv8 Virtual Environment
 
-1. Download or clone the [Ultralytics YOLO repository](https://github.com/ultralytics/ultralytics):
+1. Create a new Anaconda environment and install dependencies from the `requirements.txt` file:
 
    ```bash
-   git clone https://github.com/ultralytics/ultralytics.git
-   cd ultralytics
+   conda create --name <env-name>
    ```
-
-2. Create a new Anaconda environment and install dependencies from the `requirements.txt` file:
-
    ```bash
-   conda create --name yolov8-env python=3.8
-   conda activate yolov8-env
+   conda create -n yolodrone-env python=3.9
    ```
-
-3. Install dependencies from `requirements.txt`:
+2. Install dependencies from `requirements.txt`:
 
    ```bash
    pip install -r requirements.txt
    ```
-
 4. If you’re using GPU, install PyTorch with CUDA support by following the instructions from the [PyTorch website](https://pytorch.org/get-started/locally/). For example, for CUDA 11.7:
 
    ```bash
