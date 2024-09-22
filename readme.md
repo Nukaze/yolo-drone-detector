@@ -117,7 +117,7 @@ For detailed instructions, refer to the official [CONDA Documentation](https://c
       ```
    - to create new environment from scratch:
       ```bash
-      conda create -n yolodrone-env
+      conda create -n yolodrone-env python=3.9
       ```
    - to create new environment using a pre-configured environment.yml (if provided):
       ```bash
@@ -131,7 +131,6 @@ For detailed instructions, refer to the official [CONDA Documentation](https://c
       ```
       ![conda envs info](./resource/docs/conda_info_envs.png)
 
-   
    - Activate your environment:
       ```bash
       conda activate yolodrone-env
@@ -140,29 +139,54 @@ For detailed instructions, refer to the official [CONDA Documentation](https://c
       `(env-name) D:\path\to\project\yolo-drone-detector>`
       ![conda activated](./resource/docs/conda_activate.png)
    
-   - (Optional) Remove a Conda environment if needed:
+   - (Optional) **Remove** a Conda environment if needed:
       ```bash
       conda remove -n <env-name> --all
       ```
+   2.5 Let's try to run `main.py` by following command:
+      ```bash
+      python src\main.py
+      ```   
+      ![try_python_run_1](./resource/docs/try_python_run_1.png)
+      (You should encounter an error: ModuleNotFoundError: No module named 'cv2')
+
 
 3. Install dependencies from `requirements.txt`:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-   ![pip install req](./resource/docs/pip_install_req.png)
-
-4. (Optional, for NVIDIA GPU users) Install PyTorch with CUDA support by following the instructions from the [PyTorch website](https://pytorch.org/get-started/locally/). For this workshop using CUDA 11.7:
-
-   - Conda
+   - Check the location of `pip`:
       ```bash
-      conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+      where pip
       ```
-      ![conda_install_pytorch_cuda](./resource/docs/conda_install_pytorch_cuda.png)
-   - pip
+      ![where_pip](./resource/docs/where_pip.png)
+   - Install required dependencies listed in `requirements.txt`
+      ```bash
+      pip install -r requirements.txt
+      ```
+      ![pip_install_req](./resource/docs/pip_install_req.png)
+      (The download may take around 5-10 minutes.)
+   - After dowloaded `requirements.txt`, Let's try to run `main.py` by following command:
+      ```bash
+      python src\main.py
+      ```  
+      ![run_on_cpu](./resource/docs/run_on_cpu.png)
+      (The model will process using the CPU.)
+
+
+
+
+4. (Optional, for NVIDIA GPU users) Install PyTorch with CUDA support by following the instructions from the [PyTorch website](https://pytorch.org/get-started/locally/). 
+For this workshop using PyTorc CUDA 11.7:
+   - pip install
       ```bash
       pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
       ```
+      ![pip_install_pytorch_cuda](/resource/docs/pip_install_pytorch_cuda.png)
+
+   - After pip install `pytorch cuda 117`, Let's try to run `main.py` by following command:
+      ```bash
+      python src\main.py
+      ``` 
+      ![run_on_cuda](./resource/docs/run_on_cuda.png)
+      (The model will process using the NVIDIA GPU.)
 
 
 
