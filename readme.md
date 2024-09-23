@@ -35,34 +35,6 @@ Before you begin, ensure that you have:
 
 
 
-## #Step 0: Install Python
-
-- Open Command Console
-- typing this in console:
-  ```
-  python --version
-  ```
-
-  - If you see a Python version (e.g., Python 3.12.x), as shown below:
-    ![found python version](./resource/docs/python_steup_console_2.png)
-    Then you can skip **`#Step 0`** and go to **`#Step 1`**
-  - If no version is found, type the following command:
-
-    ```
-    python
-    ```
-
-    ![python console](./resource//docs/python_setup_console_1.png)
-    This prompt will  show the option to install Python 3.12 from the **Microsoft Store**:
-    ![microsoft store python 3.12](./resource/docs/python312.png)
-
-    - Click **Get** to download.
-    - Once downloaded, re-checking the Python version by typing:
-      ![found python version](./resource/docs/python_steup_console_2.png)
-    - After finish the installation, you can go to **`#Step 1`**
-
-
-
 ## #Step 1: OBS Studio (For virtual camera)
 1 Visit OBS Studio website
    - Go to [Download OBS](https://obsproject.com/)
