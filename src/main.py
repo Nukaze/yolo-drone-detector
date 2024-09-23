@@ -1,8 +1,12 @@
 import cv2
+import ultralytics
 from ultralytics import YOLO
+
 import torch
 
 def main():
+    # Check the version of the ultralytics
+    ultralytics.checks()
     # Load the YOLO model
     model = YOLO("models/yolov8s.pt")
     
