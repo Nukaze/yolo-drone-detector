@@ -156,8 +156,8 @@ For this workshop using PyTorch CUDA 11.7:
       ```bash
       python src\main.py
       ``` 
-      ![run_on_cuda](./resource/docs/run_on_cuda.png)
       (The model will process using the NVIDIA GPU.)
+      ![run_on_cuda](./resource/docs/run_on_cuda.png)
 
 5. **(Optional) Export Conda Environment for Use on Another PC or Machine**
    To export your Conda environment so it can be easily recreated on another system
@@ -172,7 +172,7 @@ For this workshop using PyTorch CUDA 11.7:
       conda env create -f environment.yml
       ```
 
-   Result of `environment.yml`, This process allows you to set up the same environment, ensuring consistency and portability across different systems.
+   Result of environment.yml, ensuring consistent and portable environments across different systems.
    ![environment_yml](./resource/docs/environment_yml.png)
 
 
