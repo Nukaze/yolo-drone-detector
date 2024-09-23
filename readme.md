@@ -34,7 +34,6 @@ Before you begin, ensure that you have:
 
 
 
-
 ## #Step 1: OBS Studio (For virtual camera)
 1 Visit OBS Studio website
    - Go to [Download OBS](https://obsproject.com/)
@@ -83,15 +82,12 @@ Anaconda will help manage your virtual environments. You can install Anaconda by
 ## Step 4: Set Up the Virtual Environment for Your Project
 For detailed instructions, refer to the official [CONDA Documentation](https://conda.io/projects/conda/en/latest/user-guide/index.html)
 1. Create a new Anaconda environment and install dependencies from the `requirements.txt` file:
-   - to create conda command example:
-      ```bash
-      conda create --name <env-name>
-      ```
+   - to create conda command example: `conda create --name <env-name>`
    - to create new environment from scratch:
       ```bash
       conda create -n yolodrone-env python=3.9
       ```
-   - to create new environment using a pre-configured environment.yml (if provided):
+   - to re-create environment using a pre-configured environment.yml (if provided):
       ```bash
       conda env create -f environment.yml
       ```
