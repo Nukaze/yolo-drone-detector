@@ -50,15 +50,16 @@ To leverage GPU acceleration, you need to install the CUDA Toolkit 11.7. Follow 
 1. Visit the [CUDA Toolkit 11.7 download page](https://developer.nvidia.com/cuda-11-7-0-download-archive) and select the version appropriate for your operating system.
 
    - select according to your pc or laptop 
-      Windows --> x86_64 --> 10 --> exe (network)
+      `Windows` --> `x86_64` --> `10` --> `exe (network)`
      ![cuda_select_installer](./resource/docs/cuda_select_installer.png)
    - And follow on-screen prompts
-2. Follow the installation instructions on the page. After installation, verify it by running:
+   (this process will take 10-20 minutes depend on pc, internet, etc)
+2. After installation, verify it by running:
    ```bash
    nvcc --version
    ```
+   (This should return details of CUDA 11.7 if the installation was successful.)
    ![nvcc show version](./resource/docs/nvcc_version.png)
-   This should return details of CUDA 11.7 if the installation was successful.
 
 
 
@@ -67,8 +68,10 @@ To leverage GPU acceleration, you need to install the CUDA Toolkit 11.7. Follow 
 Anaconda will help manage your virtual environments. You can install Anaconda by following these steps:
 
 1. Download the installer from the [Official Anaconda website downloader](https://www.anaconda.com/download/success).
+
 2. Run the installer and follow the on-screen instructions.
-![Anaconda_install_options](./resource/docs/conda_install_options.png)
+- ![Anaconda_install_options](./resource/docs/conda_install_options.png)
+
 3. Verify the installation by running:
 
    ```bash
@@ -115,8 +118,8 @@ For detailed instructions, refer to the official [CONDA Documentation](https://c
       ```bash
       python src\main.py
       ```   
-      ![try_python_run_1](./resource/docs/try_python_run_1.png)
       (You should encounter an error: ModuleNotFoundError: No module named 'cv2')
+      ![try_python_run_1](./resource/docs/try_python_run_1.png)
 
 
 3. Install dependencies from `requirements.txt`:
@@ -129,14 +132,14 @@ For detailed instructions, refer to the official [CONDA Documentation](https://c
       ```bash
       pip install -r requirements.txt
       ```
-      ![pip_install_req](./resource/docs/pip_install_req.png)
       (The download may take around 5-10 minutes.)
+      ![pip_install_req](./resource/docs/pip_install_req.png)
    - After dowloaded `requirements.txt`, Let's try to run `main.py` by following command:
       ```bash
       python src\main.py
       ```  
-      ![run_on_cpu](./resource/docs/run_on_cpu.png)
       (The model will process using the CPU.)
+      ![run_on_cpu](./resource/docs/run_on_cpu.png)
 
 
 
@@ -169,9 +172,10 @@ For this workshop using PyTorch CUDA 11.7:
       conda env create -f environment.yml
       ```
 
-   - Result of `environment.yml`
+   Result of `environment.yml`, This process allows you to set up the same environment, ensuring consistency and portability across different systems.
    ![environment_yml](./resource/docs/environment_yml.png)
-   This process allows you to set up the same environment, ensuring consistency and portability across different systems.
+
+
 
 ## #Step 5: TODO
 
