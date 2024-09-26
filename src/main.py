@@ -7,8 +7,17 @@ from ultralytics import YOLO
 import torch
 
 def main() -> None:
+    # Create the throbber threads
+    stop_throbber_on_init_event = threading.Event()
+    throbber_on_init_thread = threading.Thread(target=throbber_animation, args=("Initializing AI Tracker", stop_throbber_on_init_event,))
+    stop_trobber_on_processing_event = threading.Event()
+    throbber_on_processing_thread = threading.Thread(target=throbber_animation, args=("AI Tracking", stop_trobber_on_processing_event,))
+    # Start the throbber animation
+    throbber_on_init_thread.start()
     # Check the version of the ultralytics
     ultralytics.checks()
+    
+    #
     # Load the YOLO model
     model = YOLO("models/yolov8s.pt")
     
@@ -16,17 +25,14 @@ def main() -> None:
     if (is_cuda_available()):
         model.to("cuda")
         print("="*64)
-        print("*** Model is processing on [CUDA] ***")
+        print("*** Model is processing on [CUDA] ***".center(64))
         print("="*64)
     else:
         model.to("cpu")
         print("="*64)
-        print("*** Model is processing on [CPU] ***")
+        print("*** Model is processing on [CPU] ***".center(64))
         print("="*64)
         
-    stop_trobber_event = threading.Event()    
-    throbber_thread = threading.Thread(target=throbber_animation, args=(stop_trobber_event,))
-    throbber_thread.start()
     
     
     # Set the source to the camera
@@ -42,9 +48,16 @@ def main() -> None:
             conf=0.5,
             show=True,
             stream=True,
-            verbose=False
+            verbose=True,
             save_txt=True,
         )
+        # stop the throbber animation
+        stop_throbber_on_init_event.set()
+        throbber_on_init_thread.join()
+        print("=[ AI Tracker Initialized ]=")
+        # Start the throbber animation
+        throbber_on_processing_thread.start()
+        
         
         # Loop through the results for each frame
         for res in result:
@@ -57,30 +70,35 @@ def main() -> None:
             xywhn = boxes.xywhn.tolist()
             xyxy = boxes.xyxy.tolist()
             xyxyn = boxes.xyxyn.tolist()
+            
+            ...
     
     except KeyboardInterrupt:
-        print("\nKeyboardInterrupt detected. Stopping the throbber and exiting...")
+        print("\n\nKeyboardInterrupt detected. Stopping the throbber and exiting...")
     except Exception as e:
         print(f"An error occurred: {e}")
     finally:
         # Stop the throbber animation
-        stop_trobber_event.set()
-        throbber_thread.join()
-        print("Program exited")
+        stop_throbber_on_init_event.set()
+        throbber_on_init_thread.join()
+        stop_trobber_on_processing_event.set()
+        throbber_on_processing_thread.join()
+        print("=[ Program Exited ]=")
+        
         
 def is_cuda_available() -> bool:
     # Check if CUDA is available
     return torch.cuda.is_available()
     
-def throbber_animation(stop_event) -> None:
+    
+def throbber_animation(text, stop_event) -> None:
     throbber = ["|", "/", "-", "\\"]
     count = 0
     while not stop_event.is_set():
-        print("AI Tracking " + throbber[count % len(throbber)], end="\r")
+        print(f" ({throbber[count % len(throbber)]}) {text}", end="\r")
         count += 1
-        time.sleep(0.1)
-        
-    print("throbber animation stopped")
+        time.sleep(0.2)
+    print()
 
 if __name__ == '__main__':
     main()
